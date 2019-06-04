@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Navbar from "./components/Navbar/Navbar";
+import Container from "./components/Container";
+//import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Navbar
+        title="Clicky Game"
+        score={0/*this.state.currentScore*/}
+        highScore={0/*this.state.highScore*/}
+        status={"Click an image you haven't clicked yet!" /*this.state.status*/}
+        />
+        <Container>
+          <br></br><br></br><br></br>
+          <p>Hello</p>
+        </Container>
+      </div>
+    );
+  }
 }
 
 export default App;
