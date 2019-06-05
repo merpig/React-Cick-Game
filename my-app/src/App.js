@@ -9,8 +9,10 @@ import Card from "./components/Card";
 //import logo from './logo.svg';
 import './App.css';
 
+// 
 let defaultMessage = "Click an image you haven't clicked yet!";
 
+// Generic array shuffler
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -29,10 +31,12 @@ class App extends Component {
     clicked: [],
   };
 
+  // Calls the shuffleArray function and places the shuffled images in state
   shuffle = () => {
     this.setState({ Images: shuffleArray(Images) });
   };
 
+  // Click function for images
   click = id => {
     if (this.state.clicked.indexOf(id) === -1) {
       this.inc();
@@ -42,6 +46,7 @@ class App extends Component {
     }
   };
 
+  // Increment score
   inc = () => {
     const tempScore = this.state.score + 1;
     this.setState({
@@ -57,6 +62,7 @@ class App extends Component {
     this.shuffle();
   };
 
+  // Resets the game when wrong image is selected
   reset = msg => {
     this.setState({
       score: 0,
@@ -67,6 +73,7 @@ class App extends Component {
     this.shuffle();
   };
 
+  // Renders html to the index.html page
   render() {
     return (
       <div className="App">
@@ -84,9 +91,6 @@ class App extends Component {
                 <Card
                   key={image.id}
                   click={this.click}
-                  inc={this.inc}
-                  reset={this.reset}
-                  shuffle={this.shuffle}
                   id={image.id}
                   image={image.image}
                 />
